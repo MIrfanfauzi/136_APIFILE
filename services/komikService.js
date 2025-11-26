@@ -62,3 +62,10 @@ async function deleteKomik(database, id) {
   return { message: `Komik dengan ID ${id} berhasil dihapus` };
 }
 
+module.exports = {
+  createKomik,
+  getAllKomik,
+  getKomikById,
+  updateKomik,
+  deleteKomik,
+};
