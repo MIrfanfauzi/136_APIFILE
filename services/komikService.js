@@ -18,3 +18,15 @@ async function createKomik(database, komikData) {
 
   return newKomik;
 }
+
+async function getAllKomik(database) {
+  const komiks = await database.Komik.findAll();
+
+  return komiks.map(k => {
+    if (k.imageData) {
+      k.imageData = k.imageData.toString('base64');
+    }
+    return k;
+  });
+}
+
