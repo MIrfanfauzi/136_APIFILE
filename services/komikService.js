@@ -51,3 +51,14 @@ async function updateKomik(database, id, komikData) {
   await komik.update(komikData);
   return komik;
 }
+
+async function deleteKomik(database, id) {
+  const komik = await database.Komik.findByPk(id);
+  if (!komik) {
+    throw new Error(`Komik dengan ID ${id} tidak ditemukan`);
+  }
+
+  await komik.destroy();
+  return { message: `Komik dengan ID ${id} berhasil dihapus` };
+}
+
